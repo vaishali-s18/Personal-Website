@@ -177,7 +177,7 @@ export function AboutSection() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mt-10">
               {[
-                { number: "10+", label: "Projects" },
+                { number: "7+", label: "Projects" },
                 { number: "2+", label: "Years Learning" },
                 { number: "100%", label: "Dedication" },
               ].map((stat, index) => (
