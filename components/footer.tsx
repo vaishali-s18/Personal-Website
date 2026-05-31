@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/vaishali-s18", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/vaishali-v-236501316/", label: "LinkedIn" },
 ]
 
 const navLinks = [
