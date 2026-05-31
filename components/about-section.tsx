@@ -21,23 +21,106 @@ export function AboutSection() {
             className="relative"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              {/* Glowing background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-3xl blur-2xl" />
+              {/* Animated glowing orbs */}
+              <motion.div 
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3]
+                }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -top-10 -left-10 w-40 h-40 bg-purple-500/40 rounded-full blur-3xl"
+              />
+              <motion.div 
+                animate={{ 
+                  scale: [1.2, 1, 1.2],
+                  opacity: [0.4, 0.2, 0.4]
+                }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="absolute -bottom-10 -right-10 w-48 h-48 bg-blue-500/40 rounded-full blur-3xl"
+              />
+              <motion.div 
+                animate={{ 
+                  scale: [1, 1.3, 1],
+                  opacity: [0.2, 0.4, 0.2]
+                }}
+                transition={{ duration: 6, repeat: Infinity }}
+                className="absolute top-1/2 -left-5 w-24 h-24 bg-cyan-500/30 rounded-full blur-2xl"
+              />
               
               {/* Main container */}
-              <div className="relative glass rounded-3xl p-8 h-full flex items-center justify-center glow-purple">
-                <div className="text-center">
-                  <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1 overflow-hidden">
-                    <Image
-                      src="/images/vaishali-profile.png"
-                      alt="Vaishali Bakshi"
-                      width={192}
-                      height={192}
-                      className="rounded-full object-cover w-full h-full"
-                      priority
+              <div className="relative glass rounded-3xl p-8 h-full flex items-center justify-center glow-purple overflow-hidden">
+                {/* Inner decorative rings */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-64 h-64 rounded-full border border-purple-500/20"
+                  />
+                  <motion.div 
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-72 h-72 rounded-full border border-blue-500/10"
+                  />
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-80 h-80 rounded-full border border-cyan-500/10"
+                  />
+                </div>
+                
+                {/* Floating particles */}
+                <motion.div
+                  animate={{ 
+                    y: [-20, 20, -20],
+                    x: [-10, 10, -10]
+                  }}
+                  transition={{ duration: 7, repeat: Infinity }}
+                  className="absolute top-8 right-12 w-2 h-2 bg-purple-400 rounded-full"
+                />
+                <motion.div
+                  animate={{ 
+                    y: [15, -15, 15],
+                    x: [5, -5, 5]
+                  }}
+                  transition={{ duration: 5, repeat: Infinity }}
+                  className="absolute bottom-12 left-10 w-1.5 h-1.5 bg-blue-400 rounded-full"
+                />
+                <motion.div
+                  animate={{ 
+                    y: [-10, 10, -10],
+                    x: [-8, 8, -8]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity }}
+                  className="absolute top-1/3 left-8 w-1 h-1 bg-cyan-400 rounded-full"
+                />
+                
+                <div className="text-center relative z-10">
+                  {/* Profile picture with animated border */}
+                  <div className="relative w-52 h-52 mx-auto mb-6">
+                    {/* Animated gradient ring */}
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 rounded-full p-1"
+                      style={{
+                        background: "conic-gradient(from 0deg, #8b5cf6, #3b82f6, #06b6d4, #8b5cf6)"
+                      }}
                     />
+                    {/* Inner shadow ring */}
+                    <div className="absolute inset-1 rounded-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 blur-sm" />
+                    {/* Image container */}
+                    <div className="absolute inset-1 rounded-full overflow-hidden bg-background">
+                      <Image
+                        src="/images/vaishali-profile.png"
+                        alt="Vaishali Bakshi"
+                        width={200}
+                        height={200}
+                        className="rounded-full object-cover w-full h-full"
+                        priority
+                      />
+                    </div>
                   </div>
-                  <p className="text-lg text-muted-foreground">Creative Problem Solver</p>
+                  <p className="text-lg text-muted-foreground font-medium">Creative Problem Solver</p>
                 </div>
               </div>
 
