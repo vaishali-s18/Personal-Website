@@ -130,14 +130,14 @@ export function AboutSection() {
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute -top-4 -right-4 px-4 py-2 glass rounded-full text-sm"
               >
-                ✨ React.js
+                
               </motion.div>
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 5, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 px-4 py-2 glass rounded-full text-sm"
               >
-                💻 Frontend Dev
+                
               </motion.div>
             </div>
           </motion.div>
