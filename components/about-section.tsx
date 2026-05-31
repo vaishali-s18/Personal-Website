@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 
 export function AboutSection() {
   const ref = useRef(null)
@@ -26,8 +27,15 @@ export function AboutSection() {
               {/* Main container */}
               <div className="relative glass rounded-3xl p-8 h-full flex items-center justify-center glow-purple">
                 <div className="text-center">
-                  <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-white">VB</span>
+                  <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1 overflow-hidden">
+                    <Image
+                      src="/images/vaishali-profile.png"
+                      alt="Vaishali Bakshi"
+                      width={192}
+                      height={192}
+                      className="rounded-full object-cover w-full h-full"
+                      priority
+                    />
                   </div>
                   <p className="text-lg text-muted-foreground">Creative Problem Solver</p>
                 </div>
