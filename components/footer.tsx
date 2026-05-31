@@ -84,10 +84,9 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-white/5 text-center"
         >
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Designed and Developed with
-            <Heart size={14} className="text-pink-500 fill-pink-500" />
+            Designed and Developed
             by
-            <span className="gradient-text font-medium">Vaishali Bakshi</span>
+            <span className="gradient-text font-medium">Vaishali </span>
           </p>
           <p className="text-xs text-muted-foreground/60 mt-2">
             © {new Date().getFullYear()} All rights reserved.
