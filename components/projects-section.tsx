@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
 
 const projects = [
   {
@@ -13,6 +14,7 @@ const projects = [
     gradient: "from-purple-600 to-blue-600",
     link: "reactopedia-66149.web.app/",
     github: "https://github.com/vaishali-s18/Reactopedia",
+    preview: "/images/reactopedia-preview.png",
   },
   {
     title: "AIcruit",
@@ -21,6 +23,7 @@ const projects = [
     gradient: "from-cyan-500 to-blue-600",
     link: "ai-cruit-lyart.vercel.app",
     github: "https://github.com/vaishali-s18/AIcruit",
+    preview: "/images/aicruit-preview.png",
   },
   {
     title: "Portfolio Website",
@@ -29,6 +32,7 @@ const projects = [
     gradient: "from-pink-500 to-purple-600",
     link: "my-portfolio-three-rho-91.vercel.app",
     github: "https://github.com/vaishali-s18/MyPortfolio",
+    preview: "/images/portfolio-preview.png",
   },
 ]
 
@@ -113,16 +117,16 @@ export function ProjectsSection() {
 
                     {/* Visual preview */}
                     <div className={`relative ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                      <div className={`aspect-video rounded-2xl bg-gradient-to-br ${project.gradient} p-0.5`}>
-                        <div className="w-full h-full rounded-2xl bg-background/90 flex items-center justify-center">
-                          <div className="text-center p-8">
-                            <div className={`w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                              <span className="text-3xl font-bold text-white">
-                                {project.title.charAt(0)}
-                              </span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">Project Preview</p>
-                          </div>
+                      <div className={`aspect-video rounded-2xl bg-gradient-to-br ${project.gradient} p-0.5 overflow-hidden group-hover:shadow-2xl group-hover:shadow-purple-500/20 transition-all duration-500`}>
+                        <div className="w-full h-full rounded-2xl overflow-hidden relative">
+                          <Image
+                            src={project.preview}
+                            alt={`${project.title} preview`}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                          {/* Overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                       </div>
                       
