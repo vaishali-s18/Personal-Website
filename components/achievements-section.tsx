@@ -7,35 +7,35 @@ import { Award, BookOpen, Briefcase, Code, Rocket, Star } from "lucide-react"
 
 const achievements = [
   {
-    year: "2024",
+    year: "2025",
     title: "Started Professional Projects",
     description: "Began building real-world applications and contributing to team projects, focusing on React.js and modern frontend technologies.",
     icon: Rocket,
     color: "from-purple-500 to-blue-500",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "AIcruit Development",
     description: "Led frontend development for an AI-powered recruitment platform, implementing complex UI components and state management.",
     icon: Briefcase,
     color: "from-cyan-500 to-blue-500",
   },
   {
-    year: "2023",
+    year: "2025",
     title: "Reactopedia Launch",
     description: "Created and launched a comprehensive React learning platform with tutorials, filtering, and progress tracking features.",
     icon: Code,
     color: "from-blue-500 to-purple-500",
   },
   {
-    year: "2023",
-    title: "Frontend Certifications",
-    description: "Completed multiple certifications in React.js, JavaScript, and responsive web design from industry-recognized platforms.",
+    year: "2024",
+    title: "Certifications",
+    description: "Completed multiple certifications from industry-recognized platforms.",
     icon: Award,
     color: "from-pink-500 to-purple-500",
   },
   {
-    year: "2022",
+    year: "2024",
     title: "Web Development Journey Began",
     description: "Started learning HTML, CSS, and JavaScript. Built first responsive websites and discovered passion for frontend development.",
     icon: BookOpen,
