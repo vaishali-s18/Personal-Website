@@ -3,21 +3,58 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { Mail, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import emailjs from "@emailjs/browser"
 
 export function ContactSection() {
   const ref = useRef(null)
+  const formRef = useRef<HTMLFormElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     message: "",
   })
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [statusMessage, setStatusMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formState)
+    setStatus("loading")
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          message: formState.message,
+          to_name: "Vaishali Bakshi",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+
+      setStatus("success")
+      setStatusMessage("Message sent successfully! I'll get back to you soon.")
+      setFormState({ name: "", email: "", message: "" })
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setStatus("idle")
+        setStatusMessage("")
+      }, 5000)
+    } catch (error) {
+      console.error("EmailJS Error:", error)
+      setStatus("error")
+      setStatusMessage("Failed to send message. Please try again or email me directly.")
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setStatus("idle")
+        setStatusMessage("")
+      }, 5000)
+    }
   }
 
   return (
@@ -95,7 +132,7 @@ export function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="glass rounded-3xl p-8 border border-white/5">
+            <form ref={formRef} onSubmit={handleSubmit} className="glass rounded-3xl p-8 border border-white/5">
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -104,11 +141,13 @@ export function ContactSection() {
                   <input
                     type="text"
                     id="name"
+                    name="from_name"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                     placeholder="John Doe"
                     required
+                    disabled={status === "loading"}
                   />
                 </div>
 
@@ -119,11 +158,13 @@ export function ContactSection() {
                   <input
                     type="email"
                     id="email"
+                    name="from_email"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                     placeholder="john@example.com"
                     required
+                    disabled={status === "loading"}
                   />
                 </div>
 
@@ -133,23 +174,59 @@ export function ContactSection() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     rows={5}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none"
                     placeholder="Tell me about your project..."
                     required
+                    disabled={status === "loading"}
                   />
                 </div>
 
+                {/* Status message */}
+                {statusMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`flex items-center gap-2 p-4 rounded-xl ${
+                      status === "success"
+                        ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                        : "bg-red-500/10 border border-red-500/20 text-red-400"
+                    }`}
+                  >
+                    {status === "success" ? (
+                      <CheckCircle size={20} />
+                    ) : (
+                      <AlertCircle size={20} />
+                    )}
+                    <p className="text-sm">{statusMessage}</p>
+                  </motion.div>
+                )}
+
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300"
+                  disabled={status === "loading"}
+                  whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
+                  whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
+                  className={`w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
+                    status === "loading"
+                      ? "opacity-70 cursor-not-allowed"
+                      : "hover:shadow-xl hover:shadow-purple-500/25"
+                  }`}
                 >
-                  Send Message
-                  <Send size={18} />
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={18} />
+                    </>
+                  )}
                 </motion.button>
               </div>
             </form>
