@@ -58,7 +58,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">hello@vaishalibakshi.dev</p>
+                    <p className="text-foreground">vaishali05davps@gmail.com</p>
                   </div>
                 </div>
 
@@ -82,7 +82,7 @@ export function ContactSection() {
                   </p>
                   <p className="text-sm text-muted-foreground">
                     I&apos;m currently looking for internships and full-time positions 
-                    in frontend development. Let&apos;s create something amazing together!
+                    in web development. Let&apos;s create something amazing together!
                   </p>
                 </div>
               </div>
