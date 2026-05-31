@@ -43,10 +43,10 @@ export function HeroSection() {
           className="mb-8"
         >
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">
-            Vaishali Bakshi
+            Vaishali 
           </h2>
           <p className="text-lg text-muted-foreground">
-            Frontend Developer & React Enthusiast
+            Web Developer & React Enthusiast
           </p>
         </motion.div>
 
