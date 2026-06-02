@@ -21,7 +21,7 @@ const projects = [
     description: "An AI-powered recruitment platform designed to simplify and streamline hiring workflows, making the recruitment process more efficient and intelligent.",
     tech: ["React.js", "MongoDB", "Node.js", "AI/ML"],
     gradient: "from-cyan-500 to-blue-600",
-    link: "http://ai-cruit-lyart.vercel.app/",
+    link: "https://ai-cruit-lyart.vercel.app/",
     github: "https://github.com/vaishali-s18/AIcruit",
     preview: "/images/aicruit-preview.png",
   },
@@ -100,6 +100,8 @@ export function ProjectsSection() {
                       <div className="flex items-center gap-4">
                         <a
                           href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-foreground hover:text-purple-400 transition-colors"
                         >
                           <ExternalLink size={16} />
@@ -107,6 +109,8 @@ export function ProjectsSection() {
                         </a>
                         <a
                           href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-foreground hover:text-purple-400 transition-colors"
                         >
                           <Github size={16} />
