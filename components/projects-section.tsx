@@ -12,7 +12,7 @@ const projects = [
     description: "A modern React learning platform with comprehensive tutorials, smart filtering, search functionality, and progress tracking to help developers master React.",
     tech: ["React.js", "JavaScript", "CSS", "REST API"],
     gradient: "from-purple-600 to-blue-600",
-    link: "reactopedia-66149.web.app/",
+    link: "https://reactopedia-66149.web.app/",
     github: "https://github.com/vaishali-s18/Reactopedia",
     preview: "/images/reactopedia-preview.png",
   },
@@ -21,7 +21,7 @@ const projects = [
     description: "An AI-powered recruitment platform designed to simplify and streamline hiring workflows, making the recruitment process more efficient and intelligent.",
     tech: ["React.js", "MongoDB", "Node.js", "AI/ML"],
     gradient: "from-cyan-500 to-blue-600",
-    link: "ai-cruit-lyart.vercel.app",
+    link: "http://ai-cruit-lyart.vercel.app/",
     github: "https://github.com/vaishali-s18/AIcruit",
     preview: "/images/aicruit-preview.png",
   },
@@ -30,7 +30,7 @@ const projects = [
     description: "A responsive, modern portfolio built with cutting-edge frontend technologies showcasing my skills, projects, and professional journey.",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     gradient: "from-pink-500 to-purple-600",
-    link: "my-portfolio-three-rho-91.vercel.app",
+    link: "https://my-portfolio-three-rho-91.vercel.app/",
     github: "https://github.com/vaishali-s18/MyPortfolio",
     preview: "/images/portfolio-preview.png",
   },
@@ -69,7 +69,7 @@ export function ProjectsSection() {
               <div className="relative glass rounded-3xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500">
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                
+
                 <div className="relative p-8 md:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     {/* Content */}
@@ -83,7 +83,7 @@ export function ProjectsSection() {
                       <p className="text-muted-foreground leading-relaxed mb-6">
                         {project.description}
                       </p>
-                      
+
                       {/* Tech stack */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.tech.map((tech) => (
@@ -129,7 +129,7 @@ export function ProjectsSection() {
                           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                       </div>
-                      
+
                       {/* Floating decoration */}
                       <motion.div
                         animate={{ rotate: 360 }}
