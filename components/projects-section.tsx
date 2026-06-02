@@ -69,7 +69,7 @@ export function ProjectsSection() {
               <div className="relative glass rounded-3xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500">
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                
+
                 <div className="relative p-8 md:p-12">
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     {/* Content */}
@@ -83,7 +83,7 @@ export function ProjectsSection() {
                       <p className="text-muted-foreground leading-relaxed mb-6">
                         {project.description}
                       </p>
-                      
+
                       {/* Tech stack */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.tech.map((tech) => (
@@ -129,7 +129,7 @@ export function ProjectsSection() {
                           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </div>
                       </div>
-                      
+
                       {/* Floating decoration */}
                       <motion.div
                         animate={{ rotate: 360 }}
