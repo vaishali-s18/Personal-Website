@@ -21,7 +21,7 @@ const projects = [
     description: "An AI-powered recruitment platform designed to simplify and streamline hiring workflows, making the recruitment process more efficient and intelligent.",
     tech: ["React.js", "MongoDB", "Node.js", "AI/ML"],
     gradient: "from-cyan-500 to-blue-600",
-    link: "ai-cruit-lyart.vercel.app",
+    link: "http://ai-cruit-lyart.vercel.app/",
     github: "https://github.com/vaishali-s18/AIcruit",
     preview: "/images/aicruit-preview.png",
   },
