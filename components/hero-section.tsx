@@ -79,9 +79,9 @@ export function HeroSection() {
           className="flex items-center justify-center gap-6"
         >
           {[
-            { icon: Github, href: "https://github.com", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+            { icon: Github, href: "https://github.com/vaishali-s18", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/vaishali-v-236501316/", label: "LinkedIn" },
+            { icon: Mail, href: "vaishali05davps@gmail.com", label: "Email" },
           ].map((social) => (
             <a
               key={social.label}
