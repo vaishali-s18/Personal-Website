@@ -12,7 +12,7 @@ const projects = [
     description: "A modern React learning platform with comprehensive tutorials, smart filtering, search functionality, and progress tracking to help developers master React.",
     tech: ["React.js", "JavaScript", "CSS", "REST API"],
     gradient: "from-purple-600 to-blue-600",
-    link: "https://reactopedia-66149.web.app/,
+    link: "https://reactopedia-66149.web.app/",
     github: "https://github.com/vaishali-s18/Reactopedia",
     preview: "/images/reactopedia-preview.png",
   },
