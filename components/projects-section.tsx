@@ -30,7 +30,7 @@ const projects = [
     description: "A responsive, modern portfolio built with cutting-edge frontend technologies showcasing my skills, projects, and professional journey.",
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     gradient: "from-pink-500 to-purple-600",
-    link: "my-portfolio-three-rho-91.vercel.app",
+    link: "https://my-portfolio-three-rho-91.vercel.app/",
     github: "https://github.com/vaishali-s18/MyPortfolio",
     preview: "/images/portfolio-preview.png",
   },
